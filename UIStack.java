@@ -8,6 +8,7 @@ public class UIStack {
 		Scanner in = new Scanner(System.in);
 		Stack s = new Stack();
 		String str;
+		int Operation;
 		System.out.println("Please choose an action");
 		System.out.println("-----------------------");
 		System.out.println("1- Push a new Object");
@@ -16,12 +17,16 @@ public class UIStack {
 		System.out.println("4- Print size of Stack");
 		System.out.println("5- Check if Stack is empty");
 		System.out.println("====================================================================");
-		while(true) {//will keep running forever unless user enter invalid input
-			int Operation = in.nextInt();//read required operation
+		while(true) {//will keep running until pop or peek throw exception
+			String c = in.nextLine();
+			c = c.trim();
+			Operation = 0;
+			if(c.length()==1&&Character.isDigit(c.charAt(0)))
+				Operation = Character.getNumericValue(c.charAt(0));//read required operation
 			switch(Operation) {
 			case 1 :
 				System.out.println("Enter Object");
-				str = in.next();
+				str = in.nextLine();
 				s.push(str);
 				break;
 			case 2 :
